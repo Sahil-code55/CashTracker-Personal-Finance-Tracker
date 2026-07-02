@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CashTracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">   
+    <link rel="stylesheet" href="./css/Dashboard.css">
+
+</head>
+<body>
+    <main>
+        <Section id="sideBar" >
+            <div class="top">
+             <div  class="logo">
+                <i class="ri-stack-fill"></i></div>
+                <div id="text">
+                  <h2> CashTracker <em>Plus</em></h2>
+                   <span> Finance Manager </span>
+                </div>
+           </div>
+           <div class="menu">
+            <div class="buttonSection">
+            <button> <i class="ri-layout-grid-line"></i> Dashboard</button>
+            <button><i class="ri-settings-3-line"></i> settings</button>
+            </div>
+            
+                <button id="TransitionButton" ><i class="ri-add-large-line"></i>  Add Transition</button>
+           </div>
+         </Section>
+        <Section id="heroSection">
+           <nav>
+            <div><h3><em>Real-time tracking Application</em></h3></div>
+            <div class="navright">
+                <h3>UserName</h3>
+                <button id="logoutBtn"><i class="ri-login-box-line"></i>  Logout</button>
+            </div>
+           </nav>
+           <div id="heroContent">
+         <h1>Finance Overview</h1>
+         <div class="transactions">
+        <div class="balance">
+         <i class="ri-bank-fill"></i>
+            <h3>Current Balance</h3>
+            <h1> <span>$</span> 0.00</h1>
+        
+          </div>
+        <div class="TotalIncome">
+        <div class="icon1">
+             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#166546" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.2 7.8l-7.7 7.7-4-4-5.7 5.7"/><path d="M15 7h6v6"/></svg>
+        </div>
+            <h3>Total Income</h3>
+            <h1> <span>$</span> 0.00</h1>
+        
+          </div>
+        <div class="TotalExpenses">
+        <div class="icon2">
+             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#991B1B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.2 17.2l-7.7-7.7-4 4-5.7-5.7"/><path d="M15 18h6v-6"/></svg>
+        </div>
+            <h3>Total Expenses</h3>
+            <h1> <span>$</span> 0.00</h1>
+        
+          </div>
+        <div class="TotalTransactions">
+       <i class="ri-hand-coin-fill"></i>
+            <h3>Total Transactions</h3>
+            <h1> 0</h1>
+        
+          </div>
+           </div>
+          <div class="card chart-card" style="margin-bottom: 20px;">
+           <div class="card-header">Cash Flow Analysis</div>
+         <div class="chart-area" style="height: 250px; position: relative;">
+          <canvas id="cashFlowChart" width="928" height="312" style="display: block; box-sizing: border-box; height: 250px; width: 742.9px;"></canvas>
+        </div>
+
+          </div>
+        </div>
+        </Section>
+    </main>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</body>
+</html>

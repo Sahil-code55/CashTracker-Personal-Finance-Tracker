@@ -1,0 +1,260 @@
+*{
+margin: 0;
+padding:0;
+box-sizing: border-box;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+    
+html,
+body {
+width: 100%;
+height: 100%;
+}
+
+main{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* --------------------SideBar------------------- */
+#sideBar{
+height: 100%;
+width: 17%;
+background-color:  #ffff;
+padding: 5px;
+
+}
+
+.top{
+    height: 12%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  
+}
+.logo{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo i{
+   font-size: 35px;
+}
+
+.menu{
+    height: 88%;
+    display: flex;
+    flex-direction: column;
+    padding: 9px 10px;
+    align-items: center;
+  justify-content: space-between;
+  background: #FFFF;
+
+}
+
+.menu .buttonSection{
+    width: 100%;
+       display: flex;
+    flex-direction: column;
+    padding: 30px 0;
+    align-items: center;
+    gap: 20px;
+   
+}
+.buttonSection button {
+    width: 100%;
+    padding: 12px 10px;
+    font-size: 17px;
+    text-align: left;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+}
+
+#TransitionButton{
+width: 100%;
+padding: 14px;
+font-size: 17px;
+border-radius: 15px;
+border:none;
+color: #FFFF;
+background-color: rgb(31, 30, 30);
+}
+
+
+
+/*----------------------HeroSection-------------- */
+#heroSection{
+    height: 100%;
+    width: 83%;
+    background-color:  #F8FAFC;
+}
+
+nav{
+    height: 12%;
+    background: red;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px ;
+}
+
+nav .navright{
+      display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#logoutBtn{
+    padding: 6px 10px ;
+    font-size: 16px;
+    border-radius: 7px;
+    border: none;
+    background:linear-gradient(135deg,#5B5FEF,#7C3AED);
+color:white;
+
+}
+
+#logoutBtn:hover{
+    transform:translateY(-2px);
+box-shadow:0 15px 25px rgba(91,95,239,.35);
+}
+
+/* -------------heroSection------------- */
+
+#heroContent{
+    background-color: #b055de;
+    height: 100%;
+    padding: 20px;
+
+}
+
+#heroContent h1{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.transactions{
+    height: 32%;
+    width: 100%;
+    background-color: #c72828;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+}
+
+.balance ,.TotalIncome, .TotalExpenses, .TotalTransactions{
+    background-color: #ffffffea;
+    height: 90%;
+    width: 25%;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   gap: 5px;
+   padding: 20px;
+    border-radius: 15px;
+}
+
+.balance i , .TotalExpenses i, .TotalTransactions i{
+    font-size: 20px;
+    padding:  15px;
+    border-radius: 10px;
+    background-color: #DBEAFE;
+    color: #1E40AF;
+    margin-bottom: 17px;
+    
+}
+.balance h3 ,.TotalIncome h3, .TotalExpenses h3, .TotalTransactions h3{
+    font-size: 17px;
+    color: #4f5157;
+    font-weight: 500;
+}
+
+.TotalExpenses h1{
+    color: #991B1B;
+    font-weight: 500;   
+}
+.TotalIncome h1{
+    color: #166534;
+    font-weight: 500;   
+}
+.TotalIncome h1{
+    color: #166534;
+    font-weight: 500;   
+}
+
+.icon1{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #DCFCE7;
+    color: #166534;
+    margin-bottom: 17px;
+}
+
+.icon1 svg{
+    width: 25px;
+    height: 25px;
+} 
+.icon2{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #FEE2E2;
+    color: #991B1B;
+    margin-bottom: 17px;
+}
+
+.icon2 svg{
+    width: 25px;
+    height: 25px;
+} 
+/*--------------------- Chart Card Styles---------------- */
+
+.card {
+    background-color:#ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+.card h3 {
+    font-size: 24px;
+}
+
+.chart-area {
+    height: 200px;
+    background: #f8f9fb;;
+    border-radius: 8px;
+    margin-top: 16px;
+}
+
+
+
+canvas[Attributes Style] {
+    aspect-ratio: auto 928 / 312;
+    aspect-ratio: auto 928 / 312;
+}
+canvas {
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
