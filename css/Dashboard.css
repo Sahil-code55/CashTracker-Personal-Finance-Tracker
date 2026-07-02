@@ -24,6 +24,7 @@ height: 100%;
 width: 17%;
 background-color:  #ffff;
 padding: 5px;
+border-right: 1px solid #e5e7eb;
 
 }
 
@@ -86,6 +87,17 @@ color: #FFFF;
 background-color: rgb(31, 30, 30);
 }
 
+#TransitionButton:hover{
+    transform:translateY(-1px);
+box-shadow:0 15px 25px rgba(39, 39, 47, 0.35);
+}
+
+#TransitionButton:active{
+    transform:translateY(0);
+        box-shadow:0 8px 20px rgba(0,0,0,.15);
+
+}
+
 
 
 /*----------------------HeroSection-------------- */
@@ -97,11 +109,11 @@ background-color: rgb(31, 30, 30);
 
 nav{
     height: 12%;
-    background: red;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 20px ;
+    border-bottom: 1px solid #e5e7eb;
 }
 
 nav .navright{
@@ -116,22 +128,150 @@ nav .navright{
     font-size: 16px;
     border-radius: 7px;
     border: none;
-    background:linear-gradient(135deg,#5B5FEF,#7C3AED);
+    background:linear-gradient(135deg,#454bed,#8e5ce6);
 color:white;
 
 }
 
 #logoutBtn:hover{
-    transform:translateY(-2px);
+    transform:translateY(-1px);
 box-shadow:0 15px 25px rgba(91,95,239,.35);
 }
+
+#logoutBtn:active{
+    transform:translateY(0);
+        box-shadow:0 8px 20px rgba(0,0,0,.15);
+
+}
+
+
+
+/* -------------heroContent nav------------- */
+
+/*--------- HERO HEADER -------------*/
+
+.hero-top{
+    width:100%;
+    height:10%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding: 0 20px;
+}
+
+.hero-top h1{
+    font-size:15px;
+    font-weight:700;
+    color:#111827;
+    margin:0;
+}
+
+/* Right Side */
+
+.topright{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+}
+
+/* Button */
+
+.clear-btn{
+    padding:7px 10px;
+    border:none;
+    outline:none;
+    border-radius:10px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    background:white;
+    color:#111827;
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+    transition:.25s;
+      background:linear-gradient(130deg,#c19dff,#9a9df4);
+}
+
+.clear-btn:hover{
+
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+
+}
+
+.clear-btn:active{
+    transform:translateY(0);
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+
+}
+
+/*================ TOGGLE =================*/
+
+.toggle-switch{
+    position:relative;
+    width:23px;
+    height:40px;
+    display:inline-block;
+    flex-shrink:0;
+    rotate:90deg;
+
+}
+
+/* Hide checkbox */
+
+.toggle-switch input{
+    display:none;
+
+}
+
+/* Track */
+
+.slider{
+    position:absolute;
+    inset:0;
+    background:#C4C4C4;
+    border-radius:35px;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+/* Circle */
+
+.slider::before{
+    content:"";
+    position:absolute;
+    width:20px;
+    height:20px;
+    left:1.3px;
+    bottom:1px;
+    background:white;
+    border-radius:50%;
+    transition:.3s;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+}
+
+/* ON */
+
+.toggle-switch input:checked + .slider{
+    background:#6366F1;
+
+}
+
+.toggle-switch input:checked + .slider::before{
+    transform:translateY(-19px);
+
+}
+
+
 
 /* -------------heroSection------------- */
 
 #heroContent{
-    background-color: #b055de;
+
     height: 100%;
-    padding: 20px;
+    padding: 20px 10px;
 
 }
 
@@ -143,7 +283,6 @@ box-shadow:0 15px 25px rgba(91,95,239,.35);
 .transactions{
     height: 32%;
     width: 100%;
-    background-color: #c72828;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -161,6 +300,7 @@ box-shadow:0 15px 25px rgba(91,95,239,.35);
    gap: 5px;
    padding: 20px;
     border-radius: 15px;
+    box-shadow:0 5px 18px rgba(0,0,0,.04);
 }
 
 .balance i , .TotalExpenses i, .TotalTransactions i{
@@ -223,38 +363,220 @@ box-shadow:0 15px 25px rgba(91,95,239,.35);
 } 
 /*--------------------- Chart Card Styles---------------- */
 
-.card {
-    background-color:#ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 20px;
-    position: relative;
-}
-
-.card-header {
+.transactionAndChart{
+    height: 58%;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    margin-bottom: 16px;
-}
-.card h3 {
-    font-size: 24px;
-}
-
-.chart-area {
-    height: 200px;
-    background: #f8f9fb;;
-    border-radius: 8px;
-    margin-top: 16px;
+    gap: 5px;
+    margin-top: 5px;
+   
+   
 }
 
-
-
-canvas[Attributes Style] {
-    aspect-ratio: auto 928 / 312;
-    aspect-ratio: auto 928 / 312;
+.chart-card{
+    width:45%;
+    height:100%;
+    padding:20px;
+    background:white;
+    border-radius:20px;
+    margin-top:10px;
+    display: flex ;
+    flex-direction: column;
+     box-shadow:0 5px 18px rgba(0, 0, 0, 0.04);
 }
-canvas {
-    overflow-clip-margin: content-box;
-    overflow: clip;
+.card-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width: 100%;
+  
+}
+.profitbox{
+    width: 25px;
+    height: 15px;
+    background-color: #166534;}
+   
+.lossbox{
+    width: 25px;
+    height: 15px;
+    background-color: #991B1B;
+
+}
+.profit-loss{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.chart-card .chart-area{
+    padding: 3px;
+    width:100%;
+    height:100%;
+}
+
+.chart-area canvas{
+    width:100%;
+    height:100%;
+}
+
+
+ /*----------- transaction history--------- */
+
+ 
+.transactionhistory-card{
+    height:100%;
+    width:55%;
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:22px;
+    padding:15px;
+    box-shadow:0 5px 18px rgba(0,0,0,.04);
+}
+
+/* Heading */
+
+.transactionhistory-card h3{
+    font-weight:700;
+    color:#0f172a;
+    margin-bottom:10px;
+
+}
+
+/*-----------------Controls
+------------------*/
+
+.transaction-controls{
+    display:flex;
+    gap:10px;
+    margin-bottom:10px;
+
+}
+
+/* Search */
+
+.search-box{
+height:34px;
+    display:flex;
+    align-items:center;
+    gap:5px;
+    background:#f8fafc;
+    border:1px solid #e5e7eb;
+    border-radius:14px;
+    padding:1px 18px;
+
+}
+
+.search-box i{
+    font-size:18px;
+    color:#334155;
+}
+
+.search-box input{
+    width:100%;
+    height:34px;
+    border:none;
+    outline:none;
+    background:transparent;
+    font-size:15px;
+
+}
+
+/* Select */
+
+.transaction-controls select{
+    width:330px;
+    border-radius:14px;
+    border:1px solid #d1d5db;
+    padding:0 18px;
+    font-size:15px;
+    outline:none;
+
+}
+
+/*--------------------Table
+---------------------*/
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+thead{
+    background:#fff;
+}
+
+thead th{
+    color:#000000;
+    font-size:17px;
+    font-weight:700;
+    border-bottom:1px solid #e5e7eb;
+
+}
+
+tbody td{
+    padding:22px 10px;
+    border-bottom:1px solid #eceff3;
+    font-size:19px;
+    color:#0f172a;
+
+}
+
+tbody tr:hover{
+    background:#fafafa;
+}
+
+/*=============================
+ Category Badge
+==============================*/
+
+.category{
+    background:#f3f4f6;
+    color:#111827;
+    padding:8px 14px;
+    border-radius:8px;
+    font-size:15px;
+}
+
+/*=============================
+ Amount
+==============================*/
+
+.income{
+    color:#15803d;
+    font-weight:700;
+}
+
+.expense{
+    color:#dc2626;
+    font-weight:700;
+}
+
+/*=============================
+ Actions
+==============================*/
+
+.actions{
+    display:flex;
+    gap:18px;
+}
+
+.actions i{
+    font-size:22px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.edit{
+    color:#1d4ed8;
+}
+
+.delete{
+    color:#b91c1c;
+}
+
+.actions i:hover{
+    transform:scale(1.15);
 }

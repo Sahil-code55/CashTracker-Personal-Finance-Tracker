@@ -28,16 +28,38 @@
                 <button id="TransitionButton" ><i class="ri-add-large-line"></i>  Add Transition</button>
            </div>
          </Section>
+
         <Section id="heroSection">
            <nav>
-            <div><h3><em>Real-time tracking Application</em></h3></div>
+            <div><h3><em>Welcome Sahil Sahu</em></h3></div>
             <div class="navright">
                 <h3>UserName</h3>
                 <button id="logoutBtn"><i class="ri-login-box-line"></i>  Logout</button>
             </div>
            </nav>
-           <div id="heroContent">
-         <h1>Finance Overview</h1>
+<!---------------------------------- change container-------------------------------------------------------------->
+  <div id="heroContent">    
+     <div class="hero-top">
+        <div class="topleft">
+ <h2>Finance Overview</h2>
+    <span>Real-time finance tracking application</span>
+        </div>
+   
+
+    <div class="topright">
+
+        <button class="clear-btn">
+            Clear All Data
+        </button>
+
+        <label class="toggle-switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+        </label>
+
+    </div>
+         </div>
+
          <div class="transactions">
         <div class="balance">
          <i class="ri-bank-fill"></i>
@@ -68,17 +90,114 @@
         
           </div>
            </div>
-          <div class="card chart-card" style="margin-bottom: 20px;">
-           <div class="card-header">Cash Flow Analysis</div>
-         <div class="chart-area" style="height: 250px; position: relative;">
-          <canvas id="cashFlowChart" width="928" height="312" style="display: block; box-sizing: border-box; height: 250px; width: 742.9px;"></canvas>
-        </div>
-
+ 
+         <div class="transactionAndChart">
+            <!-- chart -->
+         <div class="card chart-card" style="margin-bottom:  10px;">
+           <div class="card-header"> 
+            <h3>Cash Flow Analysis</h3>
+            <div class="profit-loss">
+            <label  for = "profitbox" class="profitbox-label">Profit:</label>
+            </label>
+            <div   class="profitbox"></div>
+            <label  for = "lossbox" class="profitbox-label">Loss :</label>
+            </label>
+            <div class="lossbox"></div>
           </div>
         </div>
+         <div class="chart-area" >
+          <canvas id="cashFlowChart"></canvas>
+          </div>
+        </div> 
+        <!-- ALl transactions card -->
+
+       <div class="transactionhistory-card">
+    <h3>All Transactions</h3>
+    <div class="transaction-controls">
+        <div class="search-box">
+            <i class="ri-search-line"></i>
+            <input type="text" placeholder="Search transactions...">
+        </div>
+
+        <select>
+            <option>All Types</option>
+            <option>Income</option>
+            <option>Expense</option>
+        </select>
+
+    </div>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>DATE</th>
+                <th>DESCRIPTION</th>
+                <th>CATEGORY</th>
+                <th>AMOUNT</th>
+                <th>ACTIONS</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+
+                <td>2026-07-02</td>
+
+                <td>Recharge</td>
+
+                <td>
+                    <span class="category">
+                        Recharge & Bills
+                    </span>
+                </td>
+
+                <td class="income">
+                    +$344.00
+                </td>
+
+                <td class="actions">
+                    <i class="ri-pencil-fill edit"></i>
+                    <i class="ri-delete-bin-fill delete"></i>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>2026-07-02</td>
+                <td>Food</td>
+                <td>
+                    <span class="category">
+                        Food & Dining
+                    </span>
+                </td>
+
+                <td class="income">
+                    +$655.00
+                </td>
+
+                <td class="actions">
+                    <i class="ri-pencil-fill edit"></i>
+                    <i class="ri-delete-bin-fill delete"></i>
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+       </div>
+       </div>
+      
+      
         </Section>
     </main>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="./js/Chart.js"></script>
 
 </body>
 </html>
