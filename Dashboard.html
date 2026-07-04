@@ -21,8 +21,8 @@
            </div>
            <div class="menu">
             <div class="buttonSection">
-            <button> <i class="ri-layout-grid-line"></i> Dashboard</button>
-            <button><i class="ri-settings-3-line"></i> settings</button>
+            <button id="dashboardBtn"> <i class="ri-layout-grid-line"></i> Dashboard</button>
+            <button  id="settingBtn"><i class="ri-settings-3-line"></i> settings</button>
             </div>
             
                 <button id="TransitionButton" ><i class="ri-add-large-line"></i>  Add Transition</button>
@@ -37,9 +37,10 @@
                 <button id="logoutBtn"><i class="ri-login-box-line"></i>  Logout</button>
             </div>
            </nav>
-<!---------------------------------- change container------------------------------------------->
+<!------------------ Dashboard container---------------->
   <div id="heroContent">    
-     <div class="hero-top">
+<section id="dashboardContent" >
+  <div class="hero-top">
         <div class="topleft">
  <h2>Finance Overview</h2>
     <span>Real-time finance tracking application</span>
@@ -59,7 +60,7 @@
 
     </div>
          </div>
-
+        
          <div class="transactions">
         <div class="balance">
          <i class="ri-bank-fill"></i>
@@ -104,7 +105,7 @@
           </div>
            </div>
  
-         <div class="transactionAndChart">
+     <div class="transactionAndChart">
             <!-- chart -->
          <div class="card chart-card" style="margin-bottom:  10px;">
            <div class="card-header"> 
@@ -131,10 +132,10 @@
             <i class="ri-search-line"></i>
             <input    id="searchInput"  type="text" placeholder="Search transactions...">
         </div>
-        <select>
-            <option>All Types</option>
-            <option>Income</option>
-            <option>Expense</option>
+        <select id="typeFilter">
+            <option value="All">All Types</option>
+            <option  value="Income">Income</option>
+            <option  value="Expense">Expense</option>
         </select>
     </div>
     <table>
@@ -157,6 +158,51 @@
 </div>
 
        </div>
+</section>
+<!-- --------------------setting UI----------------- -->
+    <section id="settingContent" class="hidden" >
+    <div class="settings-header">
+        <h2>Settings</h2>
+        <p>Manage your account and finance preferences.</p>
+    </div>
+
+    <!-- Profile -->
+
+    <div class="settings-card">
+
+        <h3>Profile Detail</h3>
+
+        <div class="input-box">
+        <div class="namediv">
+             <label>Full Name :</label>
+            <input type="text" placeholder="Enter New Name" id="settingsName">
+        </div>
+        <div class="currencydiv">
+      <label>Currency :</label>
+                <select id="currency">
+
+                    <option value="$">$ USD</option>
+                    <option value="₹">₹ INR</option>
+                    <option value="€">€ EUR</option>
+                    <option value="£">£ GBP</option>
+
+                </select>
+        </div>
+           
+        </div>
+
+        <button class="settingSaveChanges">
+            Save Changes
+        </button>
+
+    </div>
+
+ 
+
+</section>
+</section>
+    </section>
+   
        </div>
       
       
@@ -249,6 +295,7 @@
                     <option>Shopping</option>
                     <option>Entertainment</option>
                     <option>Travel</option>
+                    <option>other</option>
                 </select>
 
             </div>

@@ -20,7 +20,7 @@ main{
 }
 /* --------------------SideBar------------------- */
 #sideBar{
-height: 100%;
+height: 100vh;
 width: 17%;
 background-color:  #ffff;
 padding: 5px;
@@ -75,6 +75,11 @@ border-right: 1px solid #e5e7eb;
     outline: none;
     border: none;
     border-radius: 15px;
+
+}
+#dashboardBtn{
+    background-color:#DBEAFE ;
+    color:#1E40AF ;
 }
 
 #TransitionButton{
@@ -102,13 +107,14 @@ box-shadow:0 15px 25px rgba(39, 39, 47, 0.35);
 
 /*----------------------HeroSection-------------- */
 #heroSection{
-    height: 100%;
+    height: 100vh;
     width: 83%;
     background-color:  #F8FAFC;
+   
 }
 
 nav{
-    height: 12%;
+    height: 9%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -152,7 +158,7 @@ box-shadow:0 15px 25px rgba(91,95,239,.35);
 
 .hero-top{
     width:100%;
-    height:10%;
+    height:6%;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -269,10 +275,12 @@ box-shadow:0 15px 25px rgba(91,95,239,.35);
 /* -------------heroSection------------- */
 
 #heroContent{
-
     height: 100%;
-    padding: 20px 10px;
 
+}
+#dashboardContent{
+      height: 100%;
+    padding: 20px ;
 }
 
 #heroContent h1{
@@ -281,7 +289,7 @@ box-shadow:0 15px 25px rgba(91,95,239,.35);
 }
 
 .transactions{
-    height: 32%;
+    height: 30%;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -292,12 +300,12 @@ box-shadow:0 15px 25px rgba(91,95,239,.35);
 
 .balance ,.TotalIncome, .TotalExpenses, .TotalTransactions{
     background-color: #ffffffea;
-    height: 90%;
+    height: 95%;
     width: 25%;
    display: flex;
    flex-direction: column;
    align-items: flex-start;
-   gap: 5px;
+   gap: 2px;
    padding: 20px;
     border-radius: 15px;
     box-shadow:0 5px 18px rgba(0,0,0,.04);
@@ -364,7 +372,7 @@ box-shadow:0 15px 25px rgba(91,95,239,.35);
 /*--------------------- Chart Card Styles---------------- */
 
 .transactionAndChart{
-    height: 58%;
+    height: 55%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -804,4 +812,68 @@ Button
     transform:translateY(0);
     box-shadow:0 3px 10px rgba(0,0,0,.08);
 
+}
+
+
+/* =================setting design================== */
+
+
+.settings-header h2{
+    font-size:26px;
+    margin-bottom:6x;
+}
+
+.settings-header p{
+    color:#6B7280;
+    margin-bottom:20px ;
+}
+
+.settings-card{
+    width: 60%;
+    background:#fff;
+    border:1px solid #E5E7EB;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:25px;
+}
+
+.settings-card h3{
+    margin-bottom:25px;
+    font-size:20px;
+}
+
+
+.input-box{
+     display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.input-box label{
+    font-weight:600;
+}
+
+.input-box input,
+.input-box select{
+    height:35px;
+    border:1px solid #D1D5DB;
+    border-radius:10px;
+    padding:0 15px;
+    font-size:16px;
+    outline:none;
+}
+
+.settingSaveChanges{
+    margin-top: 20px;
+    padding:10px 20px;
+    background:#111827;
+    color:#fff;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.hidden{
+display: none;
 }

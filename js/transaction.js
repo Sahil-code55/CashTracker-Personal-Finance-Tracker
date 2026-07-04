@@ -15,6 +15,7 @@ const amountInput = document.querySelector("#amount");
 const dateInput = document.querySelector("#transactionDate");
 const categoryInput = document.querySelector("#category");
 const searchInput = document.querySelector("#searchInput");
+const typeFilter = document.querySelector("#typeFilter");
 let editTransactionId = null;
 
 
@@ -74,11 +75,11 @@ localStorage.setItem(
 saveTransactionBtn.textContent = "Save Transaction";
 editTransactionId = null;
 }
-renderTransaction();
+applyFilters();
 updateDashboard();
 transactionForm.reset();
 modal.style.display = "none";
-
+updateChart();
 });
 
 
@@ -106,6 +107,7 @@ let totalTransaction = savedTransaction.length;
   totalIncome.textContent = income ;
   totalExpenses.textContent =  expense;
  transactionCount.textContent =  totalTransaction;
+ updateChart();
 
 }
 //---------------------clear all data btn ---------------------//
@@ -115,17 +117,18 @@ if (!confirmClear) return;
 localStorage.removeItem("savedTransaction");
  savedTransaction = [];
  updateDashboard();
- renderTransaction();
+applyFilters();
+updateChart();
 });
 
 
 // ----------------------render the transactions----------------//
 
 
-function renderTransaction(){
+function renderTransaction(transactions){
       transactionBody.innerHTML = "";
       let html = "";
-    savedTransaction  
+    transactions  
          .slice()
         .reverse()
         .forEach((transaction)=>{
@@ -179,8 +182,9 @@ transactionBody.addEventListener("click", function (event) {
             "savedTransaction",
             JSON.stringify(savedTransaction)
         );
-        renderTransaction();
+       applyFilters();
         updateDashboard();
+        updateChart();
     }
 
 });
@@ -209,15 +213,36 @@ transactionBody.addEventListener("click", function (event) {
         modal.style.display = "flex";
         saveTransactionBtn.textContent = "Update Transaction";
 
+
     }
 
 });
+
+// ========================search feature====================//
  
-searchInput.addEventListener("input", function () {
-const searchText = searchInput.value;
-// const filteredTransactions = savedTransaction.filter(...);
-});
+
+function applyFilters(){
+    const searchText = searchInput.value.toLowerCase();
+    const selectedType = typeFilter.value;
+    const filteredTransactions = savedTransaction.filter((transaction)=>{
+        // for searching condition 
+        const matchesSearch = transaction.description.toLowerCase().includes(searchText) ||
+                             transaction.category.toLowerCase().includes(searchText) ;
+
+        const matchesType =
+            selectedType === "All" ||
+            transaction.type === selectedType;
+               return matchesSearch && matchesType;
+
+    })
+
+    renderTransaction(filteredTransactions);
+}
+searchInput.addEventListener("input", applyFilters);
+
+typeFilter.addEventListener("change", applyFilters);
 
 
 updateDashboard();
-renderTransaction();
+applyFilters();
+updateChart();
