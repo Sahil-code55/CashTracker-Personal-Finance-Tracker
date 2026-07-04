@@ -16,17 +16,29 @@
     <div class="register-card">
 
         <h1>Create Account</h1>
-        <p>Join FinTrack Pro</p>
+        <p>Cash-Tracker Plus</p>
 
-        <form>
+        <form id="register-form">
 
             <div class="input-group">
 
                 <label>Choose a Username</label>
 
                 <input
+                required
                     type="text"
-                    placeholder=""
+                    placeholder="Enter your username"
+                >
+
+            </div>
+            <div class="input-group">
+
+                <label>Choose a Email</label>
+
+                <input
+                required
+                    type="email"
+                    placeholder="example123@gmail.com"
                 >
 
             </div>
@@ -35,14 +47,15 @@
 
                 <label>Password</label>
 
-                <input
+                    <input
+                    required
                     type="password"
-                    placeholder=""
+                    placeholder="Enter your password"
                 >
 
             </div>
 
-            <button type="submit">
+            <button   type="submit">
                 Register
             </button>
 
@@ -50,12 +63,12 @@
 
         <div class="login-link">
             Already have an account?
-            <a href="#">Login here</a>
+            <a href="./LognPage.html">Login here</a>
         </div>
 
     </div>
 
 </div>
-
+<script src="./js/auth.js"></script>
 </body>
 </html>

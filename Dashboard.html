@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CashTracker</title>
+    <title>Cash-Tracker Plus</title>
     <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">   
     <link rel="stylesheet" href="./css/Dashboard.css">
 
@@ -31,13 +31,13 @@
 
         <Section id="heroSection">
            <nav>
-            <div><h3><em>Welcome Sahil Sahu</em></h3></div>
+            <div><h3><em id="welcomeUser">Welcome</em></h3></div>
             <div class="navright">
-                <h3>UserName</h3>
+                <h3 id="userName">Username</h3>
                 <button id="logoutBtn"><i class="ri-login-box-line"></i>  Logout</button>
             </div>
            </nav>
-<!---------------------------------- change container-------------------------------------------------------------->
+<!---------------------------------- change container------------------------------------------->
   <div id="heroContent">    
      <div class="hero-top">
         <div class="topleft">
@@ -48,7 +48,7 @@
 
     <div class="topright">
 
-        <button class="clear-btn">
+        <button id = "clearAllBtn" class="clear-btn">
             Clear All Data
         </button>
 
@@ -63,8 +63,12 @@
          <div class="transactions">
         <div class="balance">
          <i class="ri-bank-fill"></i>
-            <h3>Current Balance</h3>
-            <h1> <span>$</span> 0.00</h1>
+              <h3>Current Balance</h3>
+             <div class="totalExpensesText" style="display :flex; align-items: center; justify-content: center; gap: 10px;">
+           <h1 style="font-weight: 500;">$</h1>
+           <h1 id="CurrentBalance" style="font-weight: 500;"> 0.00</h1>
+             </div>   
+           
         
           </div>
         <div class="TotalIncome">
@@ -72,21 +76,30 @@
              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#166546" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.2 7.8l-7.7 7.7-4-4-5.7 5.7"/><path d="M15 7h6v6"/></svg>
         </div>
             <h3>Total Income</h3>
-            <h1> <span>$</span> 0.00</h1>
+             <div class="totalExpensesText" style="display :flex; align-items: center; justify-content: center; gap: 10px;">
+           <h1>$</h1>
+           <h1 id="totalIncome"> 0.00</h1>
+             </div>   
+           
         
           </div>
         <div class="TotalExpenses">
         <div class="icon2">
              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#991B1B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.2 17.2l-7.7-7.7-4 4-5.7-5.7"/><path d="M15 18h6v-6"/></svg>
-        </div>
-            <h3>Total Expenses</h3>
-            <h1> <span>$</span> 0.00</h1>
+        </div> 
+             <h3>Total Expenses</h3>
+             <div class="totalExpensesText" style="display :flex; align-items: center; justify-content: center; gap: 10px;">
+           <h1>$</h1>
+           <h1 id="totalExpenses"> 0.00</h1>
+             </div>   
+           
+           
         
           </div>
         <div class="TotalTransactions">
        <i class="ri-hand-coin-fill"></i>
             <h3>Total Transactions</h3>
-            <h1> 0</h1>
+            <h1 id = "transactionCount" style="font-weight: 500;"> 0</h1>
         
           </div>
            </div>
@@ -97,10 +110,10 @@
            <div class="card-header"> 
             <h3>Cash Flow Analysis</h3>
             <div class="profit-loss">
-            <label  for = "profitbox" class="profitbox-label">Profit:</label>
+            <label   class="profitbox-label">Profit:</label>
             </label>
             <div   class="profitbox"></div>
-            <label  for = "lossbox" class="profitbox-label">Loss :</label>
+            <label  class="profitbox-label">Loss :</label>
             </label>
             <div class="lossbox"></div>
           </div>
@@ -109,8 +122,8 @@
           <canvas id="cashFlowChart"></canvas>
           </div>
         </div> 
-        <!-- ALl transactions card -->
-
+        
+<!-- ----------------transaction history------------ -->
        <div class="transactionhistory-card">
     <h3>All Transactions</h3>
     <div class="transaction-controls">
@@ -118,17 +131,13 @@
             <i class="ri-search-line"></i>
             <input type="text" placeholder="Search transactions...">
         </div>
-
         <select>
             <option>All Types</option>
             <option>Income</option>
             <option>Expense</option>
         </select>
-
     </div>
-
     <table>
-
         <thead>
             <tr>
                 <th>DATE</th>
@@ -139,51 +148,8 @@
             </tr>
         </thead>
 
-        <tbody>
-
-            <tr>
-
-                <td>2026-07-02</td>
-
-                <td>Recharge</td>
-
-                <td>
-                    <span class="category">
-                        Recharge & Bills
-                    </span>
-                </td>
-
-                <td class="income">
-                    +$344.00
-                </td>
-
-                <td class="actions">
-                    <i class="ri-pencil-fill edit"></i>
-                    <i class="ri-delete-bin-fill delete"></i>
-                </td>
-
-            </tr>
-
-            <tr>
-                <td>2026-07-02</td>
-                <td>Food</td>
-                <td>
-                    <span class="category">
-                        Food & Dining
-                    </span>
-                </td>
-
-                <td class="income">
-                    +$655.00
-                </td>
-
-                <td class="actions">
-                    <i class="ri-pencil-fill edit"></i>
-                    <i class="ri-delete-bin-fill delete"></i>
-                </td>
-
-            </tr>
-
+        <tbody id="transactionBody">
+            
         </tbody>
 
     </table>
@@ -195,9 +161,115 @@
       
       
         </Section>
+        <!-- ----------------------------------Overlay ------------------------------------------------>
+
+<div class="modal-overlay">
+
+    <div class="transaction-modal">
+
+        <div class="modal-header">
+
+            <h2>Add Transaction</h2>
+
+            <button id="close-btn">
+                <i class="ri-close-line"></i>
+            </button>
+
+        </div>
+
+        <form id="addTransaction-form">
+
+            <!-- Type -->
+
+            <div class="input-group">
+
+                <label>Type</label>
+                  
+                <select>
+                    <option>Expense</option>
+                    <option>Income</option>
+                </select>
+
+            </div>
+
+            <!-- Description -->
+
+            <div class="input-group">
+
+                <label>Description</label>
+
+                <input
+                required
+                    type="text"
+                    placeholder="e.g. Amazon, Salary, Coffee"
+                >
+
+            </div>
+
+            <!-- Amount + Date -->
+
+            <div class="row">
+
+                <div class="input-group">
+
+                    <label>Amount</label>
+
+                    <input
+                    required
+                        type="number"
+                        placeholder=""
+                    >
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>Date</label>
+
+                    <input
+                    required
+                        type="date"
+                    >
+
+                </div>
+
+            </div>
+
+            <!-- Category -->
+
+            <div class="input-group">
+
+                <label>Category</label>
+
+                <select>
+                    <option>Select a category</option>
+                    <option>Food & Dining</option>
+                    <option>Recharge & Bills</option>
+                    <option>Salary</option>
+                    <option>Shopping</option>
+                    <option>Entertainment</option>
+                    <option>Travel</option>
+                </select>
+
+            </div>
+
+            <button id="saveTransactionBtn" class="save-btn">
+                Save Transaction
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
     </main>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="module" src="./js/Startpoint.js"></script>
+<script src="./js/auth.js"></script>
 <script src="./js/Chart.js"></script>
+<script src="./js/transaction.js"></script>
+<script src="./js/Storage.js"></script>
+
 
 </body>
 </html>
