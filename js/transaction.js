@@ -7,9 +7,16 @@ const totalIncome = document.querySelector("#totalIncome");
 const totalExpenses = document.querySelector("#totalExpenses");
 const transactionCount= document.querySelector("#transactionCount");
 const clearAllBtn= document.querySelector("#clearAllBtn");
-const transactionBody = document.querySelector("#transactionBody")
-const deleteBtn = document.querySelector(".delete")
-const editBtn = document.querySelector(".edit")
+const transactionBody = document.querySelector("#transactionBody");
+const saveTransactionBtn = document.querySelector("#saveTransactionBtn");
+const typeInput = document.querySelector("#type");
+const descriptionInput = document.querySelector("#description");
+const amountInput = document.querySelector("#amount");
+const dateInput = document.querySelector("#transactionDate");
+const categoryInput = document.querySelector("#category");
+const searchInput = document.querySelector("#searchInput");
+let editTransactionId = null;
+
 
 
 
@@ -33,12 +40,13 @@ modal.addEventListener("click", (e) => {
 transactionForm.addEventListener("submit",(event)=>{
  event.preventDefault();
 
- let type = event.target[0].value;
- let description = event.target[1].value;
-let amount = Number(event.target[2].value);
- let transactionDate = event.target[3].value;
- let category = event.target[4].value;
+let type = typeInput.value;
+let description = descriptionInput.value;
+let amount = Number(amountInput.value);
+let transactionDate = dateInput.value;
+let category = categoryInput.value;
 
+if(editTransactionId === null){
 savedTransaction.push({ 
     id : Date.now(),
     type,
@@ -48,6 +56,24 @@ savedTransaction.push({
     category});
 
 localStorage.setItem("savedTransaction", JSON.stringify(savedTransaction))
+}
+else{
+    const transaction = savedTransaction.find(
+    transaction => transaction.id === editTransactionId
+);
+transaction.type = type;
+transaction.description = description;
+transaction.amount = amount;
+transaction.transactionDate = transactionDate;
+transaction.category = category;
+
+localStorage.setItem(
+    "savedTransaction",
+    JSON.stringify(savedTransaction)
+);
+saveTransactionBtn.textContent = "Save Transaction";
+editTransactionId = null;
+}
 renderTransaction();
 updateDashboard();
 transactionForm.reset();
@@ -123,10 +149,11 @@ ${transaction.category}
  ${transaction.type === "Income" ? "+" : "-"}$${transaction.amount}     
 </td>
 
-<td class="actions">
-<i class="ri-pencil-fill edit" data-id="${transaction.id}"></i>
-
-<i class="ri-delete-bin-fill delete" data-id="${transaction.id}"></i>
+<td>
+    <div class="actions">
+        <i class="ri-pencil-fill edit" data-id="${transaction.id}"></i>
+        <i class="ri-delete-bin-fill delete" data-id="${transaction.id}"></i>
+    </div>
 </td>
 
 </tr>`
@@ -138,11 +165,59 @@ transactionBody.innerHTML = html;
 
 
 
+// ======================== delete Transaction ========================//
 
+transactionBody.addEventListener("click", function (event) {
+    if (event.target.classList.contains("delete")) {
+        const id = Number(event.target.dataset.id);
+        const confirmDelete = confirm("Are you sure you want to delete this transaction?");
+        if (!confirmDelete) return;
+        savedTransaction = savedTransaction.filter(
+            transaction => transaction.id !== id
+        );
+        localStorage.setItem(
+            "savedTransaction",
+            JSON.stringify(savedTransaction)
+        );
+        renderTransaction();
+        updateDashboard();
+    }
 
+});
 
+//-----------------edit functinality----------------------//
 
+transactionBody.addEventListener("click", function (event) {
 
+    if (event.target.classList.contains("edit")) {
+
+        const id = Number(event.target.dataset.id);
+
+        const transaction = savedTransaction.find(
+            transaction => transaction.id === id
+        );
+        if (!transaction) return;
+
+        editTransactionId = id;
+
+        typeInput.value = transaction.type;
+        descriptionInput.value = transaction.description;
+        amountInput.value = transaction.amount;
+        dateInput.value = transaction.transactionDate;
+        categoryInput.value = transaction.category;
+
+        modal.style.display = "flex";
+        saveTransactionBtn.textContent = "Update Transaction";
+
+    }
+
+});
  
+searchInput.addEventListener("input", function () {
+const searchText = searchInput.value;
+// const filteredTransactions = savedTransaction.filter(...);
+});
+
+
 updateDashboard();
 renderTransaction();

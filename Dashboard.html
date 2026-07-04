@@ -129,7 +129,7 @@
     <div class="transaction-controls">
         <div class="search-box">
             <i class="ri-search-line"></i>
-            <input type="text" placeholder="Search transactions...">
+            <input    id="searchInput"  type="text" placeholder="Search transactions...">
         </div>
         <select>
             <option>All Types</option>
@@ -185,7 +185,7 @@
 
                 <label>Type</label>
                   
-                <select>
+                <select id="type">
                     <option>Expense</option>
                     <option>Income</option>
                 </select>
@@ -198,7 +198,7 @@
 
                 <label>Description</label>
 
-                <input
+                <input  id="description"
                 required
                     type="text"
                     placeholder="e.g. Amazon, Salary, Coffee"
@@ -214,7 +214,7 @@
 
                     <label>Amount</label>
 
-                    <input
+                    <input id="amount"
                     required
                         type="number"
                         placeholder=""
@@ -226,7 +226,7 @@
 
                     <label>Date</label>
 
-                    <input
+                    <input  id="transactionDate"
                     required
                         type="date"
                     >
@@ -241,7 +241,7 @@
 
                 <label>Category</label>
 
-                <select>
+                <select  id="category">
                     <option>Select a category</option>
                     <option>Food & Dining</option>
                     <option>Recharge & Bills</option>

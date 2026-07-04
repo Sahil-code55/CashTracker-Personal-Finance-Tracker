@@ -496,13 +496,16 @@ height:34px;
     outline:none;
 
 }
+ 
 
-/*--------------------Table
----------------------*/
+/*=============================
+            TABLE
+==============================*/
 
 table{
     width:100%;
     border-collapse:collapse;
+    table-layout:fixed;
 }
 
 thead{
@@ -510,33 +513,80 @@ thead{
 }
 
 thead th{
-    color:#000000;
-    font-size:17px;
+    padding:16px 12px;
+    text-align:left;
+    font-size:15px;
     font-weight:700;
+    color:#475569;
     border-bottom:1px solid #e5e7eb;
-
+    position:sticky;
+    top:0;
+    background:#fff;
+    z-index:2;
 }
 
 tbody td{
-    padding:22px 10px;
-    border-bottom:1px solid #eceff3;
-    font-size:19px;
+    padding:18px 12px;
+    font-size:16px;
     color:#0f172a;
+    border-bottom:1px solid #eceff3;
+    vertical-align:middle;
+}
 
+tbody tr{
+    transition:.2s;
 }
 
 tbody tr:hover{
-    background:#fafafa;
+    background:#f8fafc;
 }
 
-/*=============================
- Category Badge
-==============================*/
+/* DATE */
+
+thead th:nth-child(1),
+tbody td:nth-child(1){
+    width:18%;
+}
+
+/* DESCRIPTION */
+
+thead th:nth-child(2),
+tbody td:nth-child(2){
+    width:24%;
+}
+
+/* CATEGORY */
+
+thead th:nth-child(3),
+tbody td:nth-child(3){
+    width:24%;
+}
+
+/* AMOUNT */
+
+thead th:nth-child(4),
+tbody td:nth-child(4){
+    width:16%;
+    text-align:right;
+    font-weight:700;
+}
+
+/* ACTIONS */
+
+thead th:nth-child(5),
+tbody td:nth-child(5){
+    width:18%;
+    text-align:center;
+}
 
 .category{
+    display:inline-block;
+    min-width:120px;
+    text-align:center;
     padding:8px 14px;
     border-radius:8px;
-    font-size:15px;
+    font-size:14px;
+    font-weight:600;
 }
 
 .category-income{
@@ -551,52 +601,42 @@ tbody tr:hover{
     border:1px solid #DC2626;
 }
 
-
-/*=============================
- Amount
-==============================*/
-
 .income{
-    color:#15803d;
+    color:#16A34A;
     font-weight:700;
-
 }
 
 .expense{
-   
-    color:#dc2626;
+    color:#DC2626;
     font-weight:700;
 }
 
-/*=============================
- Actions
-==============================*/
-
 .actions{
     display:flex;
-    gap:18px;
+    justify-content:center;
+    align-items:center;
+    gap:16px;
 }
 
 .actions i{
-    font-size:22px;
+    font-size:20px;
     cursor:pointer;
     transition:.25s;
 }
 
 .edit{
-    color:#1d4ed8;
+    color:#2563EB;
 }
 
 .delete{
-    color:#b91c1c;
+    color:#DC2626;
 }
 
 .actions i:hover{
     transform:scale(1.15);
 }
 .actions i:active{
-       transform:translateY(0);
-    box-shadow:0 3px 10px rgba(0,0,0,.08);
+    transform:translateY(0);
 }
 
 
