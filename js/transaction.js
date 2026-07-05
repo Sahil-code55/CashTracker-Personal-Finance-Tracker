@@ -20,6 +20,9 @@ const settingsSaveBtn = document.querySelector(".settingSaveChanges");
 const settingsName = document.querySelector("#settingsName");
 const settingsCurrency = document.querySelector("#settingsCurrency");
 let editTransactionId = null;
+const dashboardBtn = document.querySelector("#dashboardBtn");
+const settingBtn = document.querySelector("#settingBtn");
+
 
 
 
@@ -63,28 +66,27 @@ loadSettings();
 function loadSettings(){
     const settings = JSON.parse(localStorage.getItem("settings"));
 
-        if (!settings) return;
-        document.querySelector("#userName").textContent = settings.name;
-         document.querySelector("#welcomeUser").textContent =
-        `Welcome, ${settings.name}`;
+    if (!settings) return;
+    document.querySelector("#userName").textContent = settings.name;
+    document.querySelector("#welcomeUser").textContent =
+    `Welcome, ${settings.name}`;
 
-          document.querySelectorAll(".currency-symbol").forEach(symbol => {
-
+    document.querySelectorAll(".currency-symbol").forEach(symbol => {
         symbol.textContent = settings.currency;
-
-         document.querySelector("#settingContent").classList.add("hidden");
-    document.querySelector("#dashboardContent").classList.remove("hidden");
-
-      dashboardBtn.style.backgroundColor = "#DBEAFE"
-    dashboardBtn.style.color = "#1E40AF"
-     settingBtn.style.backgroundColor = "#F0F0F0"
-    settingBtn.style.color = "#000000"
-
     });
 
+    document.querySelector("#settingContent").classList.add("hidden");
+    document.querySelector("#dashboardContent").classList.remove("hidden");
+
+    if (dashboardBtn && settingBtn) {
+        dashboardBtn.style.backgroundColor = "#DBEAFE";
+        dashboardBtn.style.color = "#1E40AF";
+        settingBtn.style.backgroundColor = "#F0F0F0";
+        settingBtn.style.color = "#000000";
+    }
 }
 
-// ===================================dark mode--------================================================================================//
+// ==========================dark mode-=============================//
 
 const themeToggle = document.querySelector(".toggle-switch input");
 
