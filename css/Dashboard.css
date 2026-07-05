@@ -377,7 +377,7 @@ box-shadow:0 15px 25px rgba(91,95,239,.35);
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
     margin-top: 5px;
    
    
@@ -817,7 +817,9 @@ Button
 
 /* =================setting design================== */
 
-
+#settingContent{
+    padding: 20px;
+}
 .settings-header h2{
     font-size:26px;
     margin-bottom:6x;
@@ -872,8 +874,169 @@ Button
     border-radius:10px;
     cursor:pointer;
     font-size:15px;
+
+}
+
+.settingSaveChanges:hover{
+   
+    transform:translateY(-4px);
+
+}
+
+.settingSaveChanges:active{
+    transform:translateY(0);
+ 
+
 }
 
 .hidden{
 display: none;
 }
+
+
+/* --------------------------------dark mode --------------------*/
+
+body.dark{
+    background:#0F172A;
+    color:#F8FAFC;
+}
+
+body.dark #sideBar{
+    background:#111827;
+}
+
+body.dark #sideBar h2,
+body.dark #sideBar span,
+body.dark #sideBar button{
+    color:#F8FAFC;
+}
+
+body.dark nav{
+    background:#111827;
+}
+
+body.dark nav h3{
+    color:#F8FAFC;
+}
+
+body.dark .balance,
+body.dark .TotalIncome,
+body.dark .TotalExpenses,
+body.dark .TotalTransactions,
+body.dark .chart-card,
+body.dark .transactionhistory-card,
+body.dark .settings-card{
+    background:#1E293B;
+    color:white;
+    border: 1px solid #e5e7eb;
+}
+
+body.dark input,
+body.dark select{
+    background:#334155;
+    color:white;
+    
+}
+
+body.dark table{
+    color:white;
+}
+
+body.dark thead{
+    background:#334155;
+}
+
+body.dark tbody tr{
+    border-bottom:1px solid #475569;
+}
+
+body.dark .transaction-modal{
+    background:#1E293B;
+    color:white;
+}
+body.dark .transaction-modal h2 ,body.dark .transaction-modal  label{
+    background:#1E293B;
+    color:white;
+}
+
+body.dark .modal-header{
+    border-bottom:1px solid #334155;
+}
+
+body.dark button{
+    transition:.3s;
+}
+
+body.dark .clear-btn{
+    background:#DC2626;
+    color:white;
+}
+
+body.dark #logoutBtn{
+    background:#2563EB;
+    color:white;
+}
+
+body.dark .chart-area{
+    background:#1E293B;
+}
+
+body.dark .settings-card{
+    background:#1E293B;
+}
+
+
+body.dark #heroContent{
+       background:#303d52;
+}
+
+body.dark .settings-header p{
+    color:#CBD5E1;
+
+}
+
+  
+body.dark  .menu{
+        background: #334155;
+    }
+
+ 
+body.dark  #TransitionButton{
+    background-color: #2563EB;
+   } 
+
+ 
+body.dark  .settingSaveChanges{
+     background-color: #2563EB;
+   }
+ 
+body.dark  #saveTransactionBtn{
+     background-color: #2563EB;
+   }
+
+ 
+body.dark  .transactionhistory-card h3{
+    color: #F8FAFC;
+   }
+
+ 
+body.dark  thead th{
+    background-color:#334155 ;
+    color: #ffffff;
+    border: none;
+   }
+ 
+body.dark  .search-box{
+    background-color:#334155 ;
+    color: #ffffff;
+    border: none;
+   }
+
+
+body.dark   tbody td{
+    color: #fff;
+   }
+ 
+body.dark  tbody tr:hover td{
+    color: #000;
+   }

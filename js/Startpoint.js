@@ -35,3 +35,4 @@ settingBtn.onclick = () => {
 
 };
 
+loadSettings();

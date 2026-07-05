@@ -16,14 +16,16 @@ const dateInput = document.querySelector("#transactionDate");
 const categoryInput = document.querySelector("#category");
 const searchInput = document.querySelector("#searchInput");
 const typeFilter = document.querySelector("#typeFilter");
+const settingsSaveBtn = document.querySelector(".settingSaveChanges");
+const settingsName = document.querySelector("#settingsName");
+const settingsCurrency = document.querySelector("#settingsCurrency");
 let editTransactionId = null;
-
 
 
 
 let savedTransaction = JSON.parse(localStorage.getItem("savedTransaction"))||[];
 
-//-------------------Show transaction form------------------------//
+//-------------------Show transaction form-----------------------------------------------------------------------------------------//
 openBtn.addEventListener("click", () => {
  modal.style.display = "flex";
 });
@@ -36,8 +38,92 @@ modal.addEventListener("click", (e) => {
     }
 });
 
+// -----------------------------------setting feature------------------------------------------------------------------------------//
 
-// ----------------Add transaction data to localStorage--------------//
+if (settingsSaveBtn) {
+
+    settingsSaveBtn.addEventListener("click", saveSettings);
+
+}
+
+
+
+
+function saveSettings(){
+const settings = {
+    name: settingsName.value,
+    currency: settingsCurrency.value
+};
+localStorage.setItem("settings", JSON.stringify(settings));
+
+loadSettings();
+
+}
+
+function loadSettings(){
+    const settings = JSON.parse(localStorage.getItem("settings"));
+
+        if (!settings) return;
+        document.querySelector("#userName").textContent = settings.name;
+         document.querySelector("#welcomeUser").textContent =
+        `Welcome, ${settings.name}`;
+
+          document.querySelectorAll(".currency-symbol").forEach(symbol => {
+
+        symbol.textContent = settings.currency;
+
+         document.querySelector("#settingContent").classList.add("hidden");
+    document.querySelector("#dashboardContent").classList.remove("hidden");
+
+      dashboardBtn.style.backgroundColor = "#DBEAFE"
+    dashboardBtn.style.color = "#1E40AF"
+     settingBtn.style.backgroundColor = "#F0F0F0"
+    settingBtn.style.color = "#000000"
+
+    });
+
+}
+
+// ===================================dark mode--------================================================================================//
+
+const themeToggle = document.querySelector(".toggle-switch input");
+
+// Load theme when page opens
+loadTheme();
+
+if (themeToggle) {
+    themeToggle.addEventListener("change", toggleTheme);
+}
+
+function toggleTheme() {
+
+    if (themeToggle.checked) {
+        document.body.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+    } else {
+        document.body.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+    }
+
+}
+
+function loadTheme() {
+
+    const theme = localStorage.getItem("theme");
+
+    if (theme === "dark") {
+        document.body.classList.add("dark");
+        themeToggle.checked = true;
+    } else {
+        document.body.classList.remove("dark");
+        themeToggle.checked = false;
+    }
+
+}
+
+
+
+// -------------------------------------------------Add transaction data to localStorage------------------------------------------//
 transactionForm.addEventListener("submit",(event)=>{
  event.preventDefault();
 
@@ -84,7 +170,7 @@ updateChart();
 
 
 
-// -----------------update transactions like balance,income ---------//
+// -----------------------------------update transactions like balance,income --------------------------------------------------//
 
 function updateDashboard() {
     let income = 0;
@@ -110,7 +196,7 @@ let totalTransaction = savedTransaction.length;
  updateChart();
 
 }
-//---------------------clear all data btn ---------------------//
+//------------------------------------------------clear all data btn -------------------------------------------------------------//
 clearAllBtn.addEventListener("click",function(){
 const confirmClear = confirm("Are you sure you want to delete all transactions?");
 if (!confirmClear) return;
@@ -122,7 +208,7 @@ updateChart();
 });
 
 
-// ----------------------render the transactions----------------//
+// -------------------------------------------------------------render the transactions---------------------------------------------//
 
 
 function renderTransaction(transactions){
@@ -168,7 +254,7 @@ transactionBody.innerHTML = html;
 
 
 
-// ======================== delete Transaction ========================//
+// ========================----------------------------- delete Transaction ------------------------------------========================//
 
 transactionBody.addEventListener("click", function (event) {
     if (event.target.classList.contains("delete")) {
@@ -189,7 +275,7 @@ transactionBody.addEventListener("click", function (event) {
 
 });
 
-//-----------------edit functinality----------------------//
+//--------------------------------------------------------edit functinality--------------------------------------------------------------//
 
 transactionBody.addEventListener("click", function (event) {
 
@@ -218,7 +304,7 @@ transactionBody.addEventListener("click", function (event) {
 
 });
 
-// ========================search feature====================//
+// ========================--------------------------------------search feature------------------------------------====================//
  
 
 function applyFilters(){
@@ -239,8 +325,14 @@ function applyFilters(){
     renderTransaction(filteredTransactions);
 }
 searchInput.addEventListener("input", applyFilters);
-
 typeFilter.addEventListener("change", applyFilters);
+
+
+
+
+
+
+
 
 
 updateDashboard();

@@ -25,7 +25,7 @@
             <button  id="settingBtn"><i class="ri-settings-3-line"></i> settings</button>
             </div>
             
-                <button id="TransitionButton" ><i class="ri-add-large-line"></i>  Add Transition</button>
+                <button id="TransitionButton" ><i class="ri-add-large-line"></i>  Add Transaction</button>
            </div>
          </Section>
 
@@ -66,7 +66,7 @@
          <i class="ri-bank-fill"></i>
               <h3>Current Balance</h3>
              <div class="totalExpensesText" style="display :flex; align-items: center; justify-content: center; gap: 10px;">
-           <h1 style="font-weight: 500;">$</h1>
+           <h1 class="currency-symbol" style="font-weight: 500;">$</h1>
            <h1 id="CurrentBalance" style="font-weight: 500;"> 0.00</h1>
              </div>   
            
@@ -78,7 +78,7 @@
         </div>
             <h3>Total Income</h3>
              <div class="totalExpensesText" style="display :flex; align-items: center; justify-content: center; gap: 10px;">
-           <h1>$</h1>
+           <h1 class="currency-symbol">$</h1>
            <h1 id="totalIncome"> 0.00</h1>
              </div>   
            
@@ -90,7 +90,7 @@
         </div> 
              <h3>Total Expenses</h3>
              <div class="totalExpensesText" style="display :flex; align-items: center; justify-content: center; gap: 10px;">
-           <h1>$</h1>
+           <h1 class="currency-symbol" >$</h1>
            <h1 id="totalExpenses"> 0.00</h1>
              </div>   
            
@@ -179,7 +179,7 @@
         </div>
         <div class="currencydiv">
       <label>Currency :</label>
-                <select id="currency">
+                <select id="settingsCurrency">
 
                     <option value="$">$ USD</option>
                     <option value="₹">₹ INR</option>
@@ -191,7 +191,7 @@
            
         </div>
 
-        <button class="settingSaveChanges">
+        <button  class="settingSaveChanges">
             Save Changes
         </button>
 
