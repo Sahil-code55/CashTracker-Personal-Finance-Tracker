@@ -75,11 +75,15 @@ border-right: 1px solid #e5e7eb;
     outline: none;
     border: none;
     border-radius: 15px;
-
+    background-color: #F0F0F0;
+    color: #000000;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
 }
-#dashboardBtn{
-    background-color:#DBEAFE ;
-    color:#1E40AF ;
+
+.buttonSection button.active {
+    background-color: #DBEAFE;
+    color: #1E40AF;
 }
 
 #TransitionButton{
@@ -906,9 +910,18 @@ body.dark #sideBar{
 }
 
 body.dark #sideBar h2,
-body.dark #sideBar span,
-body.dark #sideBar button{
-    color:#F8FAFC;
+body.dark #sideBar span {
+    color: #F8FAFC;
+}
+
+body.dark #sideBar button {
+    background-color: #1E293B;
+    color: #F8FAFC;
+}
+
+body.dark #sideBar button.active {
+    background-color: #DBEAFE;
+    color: #1E40AF;
 }
 
 body.dark nav{

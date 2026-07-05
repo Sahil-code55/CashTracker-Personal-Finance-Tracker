@@ -79,10 +79,8 @@ function loadSettings(){
     document.querySelector("#dashboardContent").classList.remove("hidden");
 
     if (dashboardBtn && settingBtn) {
-        dashboardBtn.style.backgroundColor = "#DBEAFE";
-        dashboardBtn.style.color = "#1E40AF";
-        settingBtn.style.backgroundColor = "#F0F0F0";
-        settingBtn.style.color = "#000000";
+        dashboardBtn.classList.add("active");
+        settingBtn.classList.remove("active");
     }
 }
 
