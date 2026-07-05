@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CashTracker Plus</title>
+    <script>
+     
+        const loggedInUser = localStorage.getItem("loggedInUser");
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+
+        if (loggedInUser) {
+            window.location.href = "./Dashboard.html";
+        } else if (users.length > 0) {
+            window.location.href = "./LoginPage.html";
+        } else {
+            window.location.href = "./Registration.html";
+        }
+    </script>
+</head>
+<body>
+    <p>Redirecting to CashTracker Plus...</p>
+</body>
+</html>

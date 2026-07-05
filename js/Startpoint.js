@@ -1,4 +1,4 @@
-const currentUser = JSON.parse(localStorage.getItem("users"));
+const currentUser = JSON.parse(localStorage.getItem("loggedInUser"));
 const dashboardContent = document.querySelector("#dashboardContent");
 const settingsContent = document.querySelector("#settingContent");
 const dashboardBtn = document.querySelector("#dashboardBtn");
@@ -9,8 +9,8 @@ const settingBtn = document.querySelector("#settingBtn");
 
 if(currentUser){
   
-    document.getElementById("welcomeUser").textContent = `Welcome ${currentUser[0].name}`;
-    document.getElementById("userName").textContent = currentUser[0].name;
+    document.getElementById("welcomeUser").textContent = `Welcome ${currentUser.name}`;
+    document.getElementById("userName").textContent = currentUser.name;
 
     
     // ================dashboard & setting shifting============//
